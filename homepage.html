@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">LOGO</a>
+        <input type="checkbox" id="toggler">
+        <label for="toggler"><i class="fas fa-bars"></i></label>
+        <div class="menu">
+            <ul class="list">
+                <li><a href="homepage.html"><i class="fas fa-home nav-icon"></i>Home</a></li>
+                <li><a href="#" class="support-button"><i class="fas fa-headset nav-icon"></i>Support</a></li>
+                <li><a href="profilePage.html"><i class="fas fa-user nav-icon"></i>Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contenr">
+        <a href="#" class="view-all">View All</a>
+        <button class="arrow-left">&#10094;</button>
+        <div class="box">
+            <h3 class="text-h3">Dr.Bassma</h3>
+            <p class="text-p">doctor in imam universty in computer sinece department</p>
+            <a class="#"><button class="button-style">Book Now!</button></a>
+        </div>
+        <div class="box">
+            <h3 class="text-h3">Dr.Sara</h3>
+            <p class="text-p">doctor in imam universty in computer sinece department</p>
+            <a class="#"><button class="button-style">Book Now!</button></a>
+        </div>
+        <div class="box">
+            <h3 class="text-h3">Dr.Asma</h3>
+            <p class="text-p">doctor in imam universty in computer sinece department</p>
+            <a class="#"><button class="button-style">Book Now!</button></a>
+        </div>
+        <button class="arrow-right">&#10095;</button> 
+    </div>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Support Form</h2>
+            <form>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="rate-icon" onclick="showModal()">
+        <i class="fas fa-star"></i>
+    </div>
+    <div id="rateModal" class="modal-rate">
+        <div class="modal-content">
+            <h3>Rate Us</h3>
+            <p>Please rate our website:</p>
+            <div>
+                <input type="radio" name="rating" id="rate1" value="1"> 1
+                <input type="radio" name="rating" id="rate2" value="2"> 2
+                <input type="radio" name="rating" id="rate3" value="3"> 3
+                <input type="radio" name="rating" id="rate4" value="4"> 4
+                <input type="radio" name="rating" id="rate5" value="5"> 5
+            </div>
+            <button onclick="submitRating()">Submit</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+    <script src="script.js">
+       
+    </script>
+</body>
+</html>

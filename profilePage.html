@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Profile Page</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">LOGO</a>
+        <input type="checkbox" id="toggler">
+        <label for="toggler"><i class="fas fa-bars"></i></label>
+        <div class="menu">
+            <ul class="list">
+                <li><a href="homepage.html"><i class="fas fa-home nav-icon"></i>Home</a></li>
+                <li><a href="#" class="support-button"><i class="fas fa-headset nav-icon"></i>Support</a></li>
+                <li><a href="profilePage.html"><i class="fas fa-user nav-icon"></i>Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Support Form</h2>
+            <form>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="rate-icon" onclick="showModal()">
+        <i class="fas fa-star"></i>
+    </div>
+    <div id="rateModal" class="modal-rate">
+        <div class="modal-content">
+            <h3>Rate Us</h3>
+            <p>Please rate our website:</p>
+            <div>
+                <input type="radio" name="rating" id="rate1" value="1"> 1
+                <input type="radio" name="rating" id="rate2" value="2"> 2
+                <input type="radio" name="rating" id="rate3" value="3"> 3
+                <input type="radio" name="rating" id="rate4" value="4"> 4
+                <input type="radio" name="rating" id="rate5" value="5"> 5
+            </div>
+            <button onclick="submitRating()">Submit</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+    <div class="profile-container">
+        <a href="#" class="Edit-button">Edit Profile</a>
+        <div class="profile-image">
+            <!-- الصورة الحالية -->
+            <img id="profile-pic" src="profile.jpg" alt="Profile Picture">
+            <!-- ملف تحميل الصورة -->
+            <input type="file" id="upload-image" accept="image/*" hidden>
+            <button id="change-pic-btn">Change Picture</button>
+        </div>
+        <!-- رسالة تأكيد عند تغيير الصورة -->
+        <p id="status-msg" style="color: green; display: none;">Picture updated!</p>
+       <div class="text-profile">
+        <p id="username">User name</p>
+        <p id="useremail">User Email</p>
+        <p id="userdob">User BOD</p>
+       </div>
+       <div id="ُEdit-profile" class="Edit-profile" style="display: none;">
+            <span class="close-btn">&times;</span>
+            <h2>Edit Profile</h2>
+            <form>
+               <p class="form-style"> <label for="name">Your Name:</label>
+                <input type="text" placeholder="Enter your name">
+               </p>
+               <p class="form-style"> <label for="email">Your Email:</label>
+                <input type="text" placeholder="Enter your Email">
+               </p>
+               <p class="form-style"> <label for="dob">Your Date of Birth:</label>
+                <input type="date" placeholder="Enter your DoB">
+               </p>
+                <button type="submit" class="button-style ">Save Changes.</button>
+            </form>
+      
+    </div>
+    </div>
+    
+
+    <script src="script2.js">
+        
+    </script>
+    
+</body>
+</html>

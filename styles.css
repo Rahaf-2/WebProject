@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'montserrat',sans-serif;
+}
+body{
+    background: linear-gradient(45deg, #DBB0CF, #F3F4F3); /* الخلفية المتدرجة */
+    min-height: 100vh; 
+    padding-bottom: 300px;
+    font-family: 'Roboto', sans-serif;
+}
+/*HOMEPAGE*/
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #DBB0CF;
+    padding: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+}
+.navbar a{
+    text-decoration: none;
+    color: #F3F4F3;
+}
+.nav-icon {
+    width: 20px; /* تحديد حجم الأيقونة */
+    height: 20px;
+    margin-right: 8px; /* المسافة بين الأيقونة والنص */
+}
+.logo{
+    margin-right: 50px;
+}
+.list{
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+
+#toggler, .navbar label{
+    display: none;
+}
+@media screen and (max-width:600px) {
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .list{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .navbar label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+    }
+}
+.navbar label i {
+    color: #F3F4F3;
+    font-size: 24px; 
+}
+.list a {
+    color: #F3F4F3;
+    text-decoration: none;
+    transition: font-size 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+}
+
+.list a:hover {
+    font-size: 18px;
+    border-bottom: 2px solid #F3F4F3;
+}
+@media screen and (max-width: 600px) {
+    .list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* تصميم نافذة منبثقة */
+.modal {
+    display: none; /* مخفية في البداية */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* خلفية مظللة */
+    z-index: 1000; /* لضمان ظهور النافذة فوق المحتوى */
+}
+
+/* محتوى النافذة */
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+}
+
+/* زر إغلاق النافذة */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+}
+
+/* تنسيق الفورم داخل النافذة */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 90%;
+    height: 150px;
+}
+
+form button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #3E2F59;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #A8D244;
+}
+.rate-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3E2F59;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.rate-icon:hover {
+    background-color: #A8D244;
+}
+
+/* تصميم نافذة التقييم */
+.modal-rate {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content input[type="radio"] {
+    margin: 10px;
+}
+
+.modal-content button {
+    background-color: #A8D244;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modal-content button:hover {
+    background-color: #8cbf2e;
+}
+.contenr{
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%; 
+    animation: moveBoxes 5s ease-out forwards; 
+}
+
+@keyframes moveBoxes {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+.box{
+    width: 250px;
+    height: 250px;
+    background-color: #3e2f59e0;
+    border-radius: 10px;
+    margin-top: 200px;
+    margin-left: 50px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.box:hover{
+    transform: scale(1.1);
+}
+
+
+.text-h3{
+    color: #F3F4F3;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.text-p{
+    color: #F3F4F3;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.button-style{
+    height: 30px;
+    width: 100px;
+    margin-left: 70px;
+    margin-top: 90px;
+    color: #3E2F59;
+    background-color: #C6ED58;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box a{
+    text-decoration: none;
+}
+.arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #3E2F59;
+    color: #F3F4F3;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    background-color: #A8D244;
+}
+
+/* تحريك البوكسات عند الضغط على الأسهم */
+@keyframes moveBoxLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes moveBoxRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* التحكم في حركة البوكسات */
+.contenr.moving-left {
+    animation: moveBoxLeft 1s forwards;
+}
+
+.contenr.moving-right {
+    animation: moveBoxRight 1s forwards;
+}
+.view-all {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: #C6ED58;
+    border-radius: 5px;
+    color: #3E2F59;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 150px;
+    margin-right: 150px;
+}
+
+.view-all:hover {
+    background-color: #A8D244;
+}
+/*END HOMEPAGE*/
+/*START PROFILEPAGE*/
+.profile-container {
+    width: 400px;
+    height: 500px;
+    max-width: 400px;
+    text-align: center;
+    background: #ffffffb0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-left: 500px;
+}
+.Edit-button{
+    text-decoration: none;
+    color: #3E2F59;
+    margin-top: 10px;
+    margin-left: 300px;
+}
+
+.text-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 100px;
+}
+.text-profile a{
+    text-decoration: none;
+    color: #3E2F59;
+}
+.profile-image {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffffb0;
+}
+
+#change-pic-btn {
+    display: block;
+    margin: 10px auto 0;
+    background: #c5ed58ee;
+    color: #000;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#status-msg {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+    display: none;
+}
+.Edit-profile {
+    position: absolute;
+    top: 50px; /* هنا يمكن تغيير القيمة لتكون فوق أكثر أو أسفل */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    background-color: #dbc7ddc6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 400px;
+    text-align: left;
+}
+
+.button-style {
+    
+    cursor: pointer;
+    background-color: #4caf4fc7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+}
+
+.button-style:hover {
+    background-color: #45a049;
+}
+.form-style{
+    margin-top: 20px;
+}
+.form-style input{
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+}
