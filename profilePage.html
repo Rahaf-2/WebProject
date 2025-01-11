@@ -60,29 +60,34 @@
         </div>
         <!-- رسالة تأكيد عند تغيير الصورة -->
         <p id="status-msg" style="color: green; display: none;">Picture updated!</p>
-       <div class="text-profile">
-        <p id="username">User name</p>
-        <p id="useremail">User Email</p>
-        <p id="userdob">User BOD</p>
-       </div>
-       <div id="ُEdit-profile" class="Edit-profile" style="display: none;">
+        <div class="profile-info-title">
+            <h1>Profile Information</h1>
+        </div>
+        
+        <div class="text-profile">
+            <p><strong>Name:</strong> <span id="username">User name</span></p>
+            <p><strong>Email:</strong> <span id="useremail">User Email</span></p>
+            <p><strong>Date of Birth:</strong> <span id="userdob">User BOD</span></p>
+        </div>
+        
+        <div id="Edit-profile" class="Edit-profile" style="display: none;">
             <span class="close-btn">&times;</span>
             <h2>Edit Profile</h2>
-            <form>
-               <p class="form-style"> <label for="name">Your Name:</label>
-                <input type="text" placeholder="Enter your name">
-               </p>
-               <p class="form-style"> <label for="email">Your Email:</label>
-                <input type="text" placeholder="Enter your Email">
-               </p>
-               <p class="form-style"> <label for="dob">Your Date of Birth:</label>
-                <input type="date" placeholder="Enter your DoB">
-               </p>
-                <button type="submit" class="button-style ">Save Changes.</button>
-            </form>
-      
-    </div>
-    </div>
+            <form id="edit-profile-form">
+                <p class="form-style">
+                    <label for="name">Your Name:</label>
+                    <input id="name" type="text" placeholder="Enter your name">
+                </p>
+                <p class="form-style">
+                    <label for="email">Your Email:</label>
+                    <input id="email" type="text" placeholder="Enter your Email">
+                </p>
+                <p class="form-style">
+                    <label for="dob">Your Date of Birth:</label>
+                    <input id="dob" type="date" placeholder="Enter your DoB">
+                </p>
+                <button type="submit" class="button-style">Save Change
+        
     
 
     <script src="script2.js">

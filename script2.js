@@ -71,44 +71,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
-// التعامل مع التعديل وحفظ البيانات
-document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // منع إرسال النموذج بشكل تقليدي
-
-    // جلب البيانات المدخلة
-    const newName = document.getElementById('name').value;
-    const newEmail = document.getElementById('email').value;
-    const newDob = document.getElementById('dob').value;
-
-    // تحديث معلومات المستخدم في الصفحة
-    document.getElementById('username').textContent = newName;
-    document.getElementById('useremail').textContent = newEmail;
-    document.getElementById('userdob').textContent = newDob;
-
-    // إخفاء نموذج التعديل بعد الحفظ
-    const editForm = document.querySelector('.Edit-profile');
-    editForm.style.display = 'none';
-});
-
-// الحصول على العناصر
+// تحديد العناصر
 const closeBtn = document.querySelector('.close-btn');
-const saveBtn = document.querySelector('.button-style ');
+const editForm = document.querySelector('#edit-profile-form');
 const modal1 = document.getElementById('Edit-profile');
 
-// إغلاق النافذة عند الضغط على زر "×"
+// عناصر عرض المعلومات
+const userName = document.getElementById('username');
+const userEmail = document.getElementById('useremail');
+const userDob = document.getElementById('userdob');
+
+// تحميل البيانات من LocalStorage عند تحميل الصفحة
+window.addEventListener('DOMContentLoaded', () => {
+    const storedName = localStorage.getItem('userName');
+    const storedEmail = localStorage.getItem('userEmail');
+    const storedDob = localStorage.getItem('userDob');
+
+    // إذا كانت البيانات موجودة في LocalStorage، عرضها
+    if (storedName) {
+        userName.textContent = storedName;
+    }
+    if (storedEmail) {
+        userEmail.textContent = storedEmail;
+    }
+    if (storedDob) {
+        userDob.textContent = storedDob;
+    }
+});
+
+// عند فتح نافذة التعديل، تعبئة الحقول بالقيم الحالية
+function openEditProfile() {
+    document.getElementById('name').value = userName.textContent;
+    document.getElementById('email').value = userEmail.textContent;
+    document.getElementById('dob').value = userDob.textContent;
+    modal1.style.display = 'block'; // عرض النافذة
+}
+
+// إغلاق النافذة عند الضغط على "×"
 closeBtn.addEventListener('click', () => {
     modal1.style.display = 'none'; // إخفاء النافذة
 });
 
-// إغلاق النافذة عند الضغط على زر "Save"
-saveBtn.addEventListener('click', () => {
-    modal1.style.display = 'none'; // إخفاء النافذة
+
+// حفظ التعديلات عند إرسال النموذج
+editForm.addEventListener('submit', function (event) {
+    event.preventDefault(); // منع إرسال النموذج
+
+    // جلب القيم المدخلة
+    const newName = document.getElementById('name').value;
+    const newEmail = document.getElementById('email').value;
+    const newDob = document.getElementById('dob').value;
+
+    // تحديث القيم في الصفحة
+    userName.textContent = newName;
+    userEmail.textContent = newEmail;
+    userDob.textContent = newDob;
+
+    // حفظ القيم في LocalStorage
+    localStorage.setItem('userName', newName);
+    localStorage.setItem('userEmail', newEmail);
+    localStorage.setItem('userDob', newDob);
+
+    // إخفاء نافذة التعديل
+    modal1.style.display = 'none';
 });
+
+// إغلاق النافذة عند النقر خارجها
 window.addEventListener('click', (event) => {
-    // إذا تم النقر خارج النافذة، أغلقها
-    if (event.target === modal) {
+    if (event.target === modal1) {
         modal1.style.display = 'none';
     }
 });
-
-
